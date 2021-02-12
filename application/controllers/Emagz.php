@@ -70,7 +70,7 @@ class Emagz extends CI_Controller {
     $config_thumbnail = ['upload_path' => './emagazine/thumbnail/', 'allowed_types' => 'jpg|jpeg|png|gif'];
     $this->upload->initialize($config_thumbnail);
     if (empty($judul) || (empty($old_files) && !$this->upload->do_upload('files'))){
-      $this->session->set_flashdata('error_message', 'Harap masukkan data dengan benar!');
+      $this->session->set_flashdata('error_message', 'Harap masukkan data dengan benar nggk kro!');
       redirect(base_url('emagz/edit/' . $id_emagz));
     } else {
       if ($this->upload->do_upload('files')){
