@@ -102,12 +102,14 @@ class Emagz extends CI_Controller {
   public function update_with_emagz(){
     $id_emagz = $this->input->post('id_emagz');
     $judul = $this->input->post('judul');
+    $linkPubHtml5 = $this->input->post('linkPubHtml5');
+    $linkQuiz = $this->input->post('linkQuiz');
     $old_files = $this->input->post('old_files');
     $config_emagz = ['upload_path' => './emagazine/files/', 'allowed_types' => 'pdf'];
     $config_thumbnail = ['upload_path' => './emagazine/thumbnail/', 'allowed_types' => 'jpg|jpeg|png|gif'];
     $this->upload->initialize($config_emagz);
     if (empty($judul) || !$this->upload->do_upload('emagz')){
-      $this->session->set_flashdata('error_message', 'Harap masukkan data dengan benar!');
+      $this->session->set_flashdata('error_message', 'Harap masukkan data dengan benar iki karo emagz!');
       redirect(base_url('emagz/add'));
     } else {
       $emagz = $this->upload->data();
@@ -123,7 +125,7 @@ class Emagz extends CI_Controller {
         } else {
           $fileData['file_name'] = $old_files;
         }
-        $this->Memagz->update($id_emagz, ['NAME' => $judul, 'FILE' => $emagz['file_name'], 'THUMBNAIL' => $fileData['file_name']]);
+        $this->Memagz->update($id_emagz, ['NAME' => $judul, 'FILE' => $emagz['file_name'], 'THUMBNAIL' => $fileData['file_name'], 'LINK_PUBHTML5' => $linkPubHtml5, 'LINK_QUIZ' => $linkQuiz]);
         $this->session->set_flashdata('success_message', 'E-Magazine berhasil diubah');
         redirect(base_url('emagz'));
       }
