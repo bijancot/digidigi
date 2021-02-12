@@ -75,7 +75,8 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '149.129.248.246',
+	// 'hostname' => '149.129.248.246',
+	'hostname' => 'digi.bgskr-project.my.id',
 	'username' => 'postgres',
 	'password' => 'dudadidu123!',
 	'database' => 'postgres',
