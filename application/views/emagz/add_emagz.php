@@ -41,6 +41,18 @@
             <input type="file" name="emagz" class="form-control-file">
           </div>
         </div>
+        <div class="form-group row"> 
+          <label for="linkpubhtml5" class="col-3 col-form-label">Link PubHTML 5</label>
+          <div class="col-9">
+            <input type="text" class="form-control" name="linkPubHtml5"> 
+          </div>
+        </div>
+        <div class="form-group row"> 
+          <label for="linkquiz" class="col-3 col-form-label">Link Quiz</label>
+          <div class="col-9">
+            <input type="text" class="form-control" name="linkQuiz"> 
+          </div>
+        </div>
         <button type="submit" class="btn btn-primary">Buat E-Magazine Baru</button>
       </div>
       <div class="col-md-3">
