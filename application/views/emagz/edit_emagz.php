@@ -143,7 +143,7 @@ if ($this->session->flashdata('success_message')){ ?>
     $('#old_files').val('');
   }
 
-  function confirmForm {
+  function confirmForm() {
     let linkPubHtml5 = $('#linkPubHtml5').val()
     let linkQuiz = $('#linkQuiz').val()
 
@@ -154,7 +154,7 @@ if ($this->session->flashdata('success_message')){ ?>
     }
   }
 
-  function submitForm {
+  function submitForm() {
     $('#c_form-h').submit()
   }
 </script>
