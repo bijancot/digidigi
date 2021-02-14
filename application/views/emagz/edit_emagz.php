@@ -148,7 +148,7 @@ if ($this->session->flashdata('success_message')){ ?>
     let linkQuiz = $('#linkQuiz').val()
 
     if(linkPubHtml5 == '' || linkQuiz == ''){
-      $('#ModalSubmit').toggle('show')
+      $('#ModalSubmit').modal('show')
     }else{
 
     }
