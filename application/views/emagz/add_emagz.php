@@ -44,16 +44,16 @@
         <div class="form-group row"> 
           <label for="linkpubhtml5" class="col-3 col-form-label">Link PubHTML 5</label>
           <div class="col-9">
-            <input type="text" class="form-control" name="linkPubHtml5"> 
+            <input type="text" id="linkPubHtml5" class="form-control" name="linkPubHtml5"> 
           </div>
         </div>
         <div class="form-group row"> 
           <label for="linkquiz" class="col-3 col-form-label">Link Quiz</label>
           <div class="col-9">
-            <input type="text" class="form-control" name="linkQuiz"> 
+            <input type="text" id="linkQuiz" class="form-control" name="linkQuiz"> 
           </div>
         </div>
-        <button type="submit" class="btn btn-primary">Buat E-Magazine Baru</button>
+        <a href="javascript:confirmForm()" class="btn btn-primary">Buat E-Magazine Baru</a>
       </div>
       <div class="col-md-3">
         <label>Preview Thumbnail E-Magazine</label>
@@ -63,6 +63,22 @@
         <a class="btn btn-danger" href="javascript:removeImage()">Hapus</a>
       </div>
       </form>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="ModalSubmit" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Konfirmasi Submit</h5> <button type="button" class="close" data-dismiss="modal"> <span>×</span> </button>
+      </div>
+      <div class="modal-body">
+        <p>Link field pubhtml 5 atau quiz masih kosong. Anda yakin untuk mengubah data?</p>
+      </div>
+      <div class="modal-footer"> 
+        <a href="javascript:submitForm()" class="btn btn-success">Save</a>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> 
+      </div>
     </div>
   </div>
 </div>
@@ -89,5 +105,19 @@
   }
   function removeImage() {
     $('#preview').attr('src', '<?= base_url('assets/image/no_image.png') ?>');
+  }
+  function confirmForm() {
+    let linkPubHtml5 = $('#linkPubHtml5').val()
+    let linkQuiz = $('#linkQuiz').val()
+
+    if(linkPubHtml5 == '' || linkQuiz == ''){
+      $('#ModalSubmit').modal('show')
+    }else{
+      submitForm()
+    }
+  }
+
+  function submitForm() {
+    $('#c_form-h').submit()
   }
 </script>
