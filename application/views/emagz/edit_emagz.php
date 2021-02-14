@@ -111,7 +111,7 @@ if ($this->session->flashdata('success_message')){ ?>
         <p>Link field pubhtml 5 atau quiz masih kosong. Anda yakin untuk mengubah data?</p>
       </div>
       <div class="modal-footer"> 
-        <a href="javascript:" class="btn btn-success">Save</a>
+        <a href="javascript:submitForm()" class="btn btn-success">Save</a>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> 
       </div>
     </div>
@@ -150,7 +150,7 @@ if ($this->session->flashdata('success_message')){ ?>
     if(linkPubHtml5 == '' || linkQuiz == ''){
       $('#ModalSubmit').modal('show')
     }else{
-
+      submitForm()
     }
   }
 
