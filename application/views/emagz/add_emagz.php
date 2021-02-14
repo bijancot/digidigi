@@ -73,7 +73,7 @@
         <h5 class="modal-title">Konfirmasi Submit</h5> <button type="button" class="close" data-dismiss="modal"> <span>×</span> </button>
       </div>
       <div class="modal-body">
-        <p>Link field pubhtml 5 atau quiz masih kosong. Anda yakin untuk mengubah data?</p>
+        <p>Link field pubhtml 5 atau quiz masih kosong. Anda yakin untuk menyimpan data?</p>
       </div>
       <div class="modal-footer"> 
         <a href="javascript:submitForm()" class="btn btn-success">Save</a>
