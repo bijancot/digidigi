@@ -62,16 +62,16 @@ if ($this->session->flashdata('success_message')){ ?>
         <div class="form-group row"> 
           <label for="linkpubhtml5" class="col-3 col-form-label">Link PubHTML 5</label>
           <div class="col-9">
-            <input type="text" class="form-control" value="<?= $emagz->LINK_PUBHTML5 ?>" name="linkPubHtml5"> 
+            <input type="text" class="form-control" id="linkPubHtml5" value="<?= $emagz->LINK_PUBHTML5 ?>" name="linkPubHtml5"> 
           </div>
         </div>
         <div class="form-group row"> 
           <label for="linkquiz" class="col-3 col-form-label">Link Quiz</label>
           <div class="col-9">
-            <input type="text" class="form-control" value="<?= $emagz->LINK_QUIZ ?>" name="linkQuiz"> 
+            <input type="text" class="form-control" id="linkQuiz" value="<?= $emagz->LINK_QUIZ ?>" name="linkQuiz"> 
           </div>
         </div>
-        <button type="submit" class="btn btn-primary">Edit E-Magazine</button>
+        <a class="btn btn-primary" href="javascript:confirmForm()" >Edit E-Magazine</a>
       </div>
       <div class="col-md-3">
         <label>Preview Thumbnail E-Magazine</label>
@@ -101,6 +101,22 @@ if ($this->session->flashdata('success_message')){ ?>
     </div>
   </div>
 </div>
+<div class="modal fade" id="ModalSubmit" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Konfirmasi Submit</h5> <button type="button" class="close" data-dismiss="modal"> <span>×</span> </button>
+      </div>
+      <div class="modal-body">
+        <p>Link field pubhtml 5 atau quiz masih kosong. Anda yakin untuk mengubah data?</p>
+      </div>
+      <div class="modal-footer"> 
+        <a href="javascript:" class="btn btn-success">Save</a>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> 
+      </div>
+    </div>
+  </div>
+</div>
 <script type='text/javascript'>
   function changeProfile() {
     $('#image').click();
@@ -125,5 +141,20 @@ if ($this->session->flashdata('success_message')){ ?>
   function removeImage() {
     $('#preview').attr('src', '<?= base_url('assets/image/no_image.png') ?>');
     $('#old_files').val('');
+  }
+
+  function confirmForm {
+    let linkPubHtml5 = $('#linkPubHtml5').val()
+    let linkQuiz = $('#linkQuiz').val()
+
+    if(linkPubHtml5 == '' || linkQuiz == ''){
+      $('#ModalSubmit').toggle('show')
+    }else{
+
+    }
+  }
+
+  function submitForm {
+    $('#c_form-h').submit()
   }
 </script>
