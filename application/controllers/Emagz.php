@@ -65,6 +65,7 @@ class Emagz extends CI_Controller {
   public function update(){
     $id_emagz = $this->input->post('id_emagz');
     $judul = $this->input->post('judul');
+    $old_files = $this->input->post('old_files');
     $linkPubHtml5 = $this->input->post('linkPubHtml5');
     $linkQuiz = $this->input->post('linkQuiz');
     $config_thumbnail = ['upload_path' => './emagazine/thumbnail/', 'allowed_types' => 'jpg|jpeg|png|gif'];
