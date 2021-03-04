@@ -43,19 +43,18 @@
         </div>
         <div class="form-group row"> 
           <label for="linkpubhtml5" class="col-3 col-form-label">Link PubHTML 5</label>
-          <div class="col-9">
+          <div class="col-6">
             <input type="text" id="linkPubHtml5" class="form-control" name="linkPubHtml5"> 
           </div>
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-secondary active">
-              <input type="radio" name="options" id="option1" autocomplete="off" checked> Active
-            </label>
-            <label class="btn btn-secondary">
-              <input type="radio" name="options" id="option2" autocomplete="off"> Radio
-            </label>
-            <label class="btn btn-secondary">
-              <input type="radio" name="options" id="option3" autocomplete="off"> Radio
-            </label>
+          <div class="col-3">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option2" autocomplete="off"> Radio
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="options" id="option3" autocomplete="off"> Radio
+              </label>
+            </div>
           </div>
         </div>
         <div class="form-group row"> 
