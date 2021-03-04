@@ -14,6 +14,7 @@ class Emagz extends CI_Controller {
     $param['main_content'] = 'emagz/emagz_list';
 		$param['page_title'] = 'E-Magazine';
 		$param['emagz'] = $this->Memagz->getAll();
+    var_dump($param['emagz']);
 		$this->load->view('dashboard', $param);
   }
 
