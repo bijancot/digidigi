@@ -48,10 +48,10 @@
           </div>
           <div class="col-3">
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
-              <label class="btn btn-default active">
-                <input type="radio" value="true" name="IS_PUBACTIVE" id="option2" autocomplete="off"> Aktif
+              <label class="btn btn-primary active">
+                <input type="radio" value="true" name="IS_PUBACTIVE" id="option2" autocomplete="off" checked> Aktif
               </label>
-              <label class="btn btn-default">
+              <label class="btn btn-primary">
                 <input type="radio" value="false" name="IS_PUBACTIVE" id="option3" autocomplete="off"> Tidak Aktif
               </label>
             </div>
