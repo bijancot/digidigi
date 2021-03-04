@@ -66,11 +66,11 @@ if ($this->session->flashdata('success_message')){ ?>
           </div>
           <div class="col-3">
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
-              <label class="btn btn-primary <?= $emagz->IS_PUBACTIVE == true? 'active' : '' ?>">
-                <input type="radio" value="true" name="isPubActive" id="option2" autocomplete="off" <?= $emagz->IS_PUBACTIVE == true? 'checked' : '' ?>> Aktif
+              <label class="btn btn-primary <?= $emagz->IS_PUBACTIVE == 't'? 'active' : '' ?>">
+                <input type="radio" value="true" name="isPubActive" id="option2" autocomplete="off" <?= $emagz->IS_PUBACTIVE == 't'? 'checked' : '' ?>> Aktif
               </label>
-              <label class="btn btn-primary <?= $emagz->IS_PUBACTIVE == false? 'active' : '' ?>">
-                <input type="radio" value="false" name="isPubActive" id="option3" autocomplete="off" <?= $emagz->IS_PUBACTIVE == false? 'checked' : '' ?>> Tidak Aktif
+              <label class="btn btn-primary <?= $emagz->IS_PUBACTIVE == 'f'? 'active' : '' ?>">
+                <input type="radio" value="false" name="isPubActive" id="option3" autocomplete="off" <?= $emagz->IS_PUBACTIVE == 'f'? 'checked' : '' ?>> Tidak Aktif
               </label>
             </div>
           </div>
