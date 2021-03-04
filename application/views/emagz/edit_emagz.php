@@ -61,8 +61,18 @@ if ($this->session->flashdata('success_message')){ ?>
         </div>
         <div class="form-group row"> 
           <label for="linkpubhtml5" class="col-3 col-form-label">Link PubHTML 5</label>
-          <div class="col-9">
+          <div class="col-6">
             <input type="text" class="form-control" id="linkPubHtml5" value="<?= $emagz->LINK_PUBHTML5 ?>" name="linkPubHtml5"> 
+          </div>
+          <div class="col-3">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-primary <?= $emagz->IS_PUBACTIVE == true? 'active' : '' ?>">
+                <input type="radio" value="true" name="isPubActive" id="option2" autocomplete="off" <?= $emagz->IS_PUBACTIVE == true? 'checked' : '' ?>> Aktif
+              </label>
+              <label class="btn btn-primary <?= $emagz->IS_PUBACTIVE == false? 'active' : '' ?>">
+                <input type="radio" value="false" name="isPubActive" id="option3" autocomplete="off" <?= $emagz->IS_PUBACTIVE == false? 'checked' : '' ?>> Tidak Aktif
+              </label>
+            </div>
           </div>
         </div>
         <div class="form-group row"> 
