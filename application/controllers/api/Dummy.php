@@ -88,5 +88,8 @@ class Dummy extends REST_Controller {
       $this->response(['status' => FALSE, 'message' => "Failed"], REST_Controller::HTTP_NOT_FOUND);
     }
   }
+  function version_get(){
+    $this->response(['status' => TRUE, 'data' => ['version' => "1.2.2"]], REST_Controller::HTTP_OK);
+  }
 }
 ?>
