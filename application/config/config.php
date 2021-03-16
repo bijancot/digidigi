@@ -26,7 +26,7 @@ ini_set('max_execution_time', '1200');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://digimon.kristomoyo.com';
+$config['base_url'] = 'https://pn10mobprd.ptpn10.co.id:8598';
 
 /*
 |--------------------------------------------------------------------------
