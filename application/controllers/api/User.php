@@ -79,7 +79,7 @@ class User extends REST_Controller {
       if (strpos($check->PROFILEPIC_URL, 'http://') !== false){
         unlink('./images/users/' . explode('/', $check->PROFILEPIC_URL)[5]);
       } else {
-        unlink('./images/users/' . explode('/', $check->PROFILEPIC_URL)[3]);
+        unlink('./images/users/' . explode('/', $check->PROFILEPIC_URL)[5]);
       }
     }
     if ($this->upload->do_upload('picture')){
