@@ -68,7 +68,7 @@ if ($this->session->flashdata('success_message')){ ?>
             <div class="form-check">
               <input class="form-check-input" type="checkbox" name="isPubActive" <?= $emagz->IS_PUBACTIVE == 't'? 'checked' : '' ?> id="">
               <label class="form-check-label" for="defaultCheck1">
-                Default checkbox
+                Aktif
               </label>
             </div>
           </div>

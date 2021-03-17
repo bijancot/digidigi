@@ -50,7 +50,7 @@
             <div class="form-check">
               <input class="form-check-input" type="checkbox" name="isPubActive" id="">
               <label class="form-check-label" for="defaultCheck1">
-                Default checkbox
+                Aktif
               </label>
             </div>
           </div>
