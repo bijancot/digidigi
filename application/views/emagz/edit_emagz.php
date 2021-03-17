@@ -65,12 +65,10 @@ if ($this->session->flashdata('success_message')){ ?>
             <input type="text" class="form-control" id="linkPubHtml5" value="<?= $emagz->LINK_PUBHTML5 ?>" name="linkPubHtml5"> 
           </div>
           <div class="col-3">
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-              <label class="btn btn-primary <?= $emagz->IS_PUBACTIVE == 't'? 'active' : '' ?>">
-                <input type="radio" value="true" name="isPubActive" id="option2" autocomplete="off" <?= $emagz->IS_PUBACTIVE == 't'? 'checked' : '' ?>> Aktif
-              </label>
-              <label class="btn btn-primary <?= $emagz->IS_PUBACTIVE == 'f'? 'active' : '' ?>">
-                <input type="radio" value="false" name="isPubActive" id="option3" autocomplete="off" <?= $emagz->IS_PUBACTIVE == 'f'? 'checked' : '' ?>> Tidak Aktif
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="isPubActive" <?= $emagz->IS_PUBACTIVE == 't'? 'checked' : '' ?> id="">
+              <label class="form-check-label" for="defaultCheck1">
+                Aktif
               </label>
             </div>
           </div>
