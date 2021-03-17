@@ -47,12 +47,10 @@
             <input type="text" id="linkPubHtml5" class="form-control" name="linkPubHtml5"> 
           </div>
           <div class="col-3">
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
-              <label class="btn btn-primary active">
-                <input type="radio" value="true" name="isPubActive" id="option2" autocomplete="off" checked> Aktif
-              </label>
-              <label class="btn btn-primary">
-                <input type="radio" value="false" name="isPubActive" id="option3" autocomplete="off"> Tidak Aktif
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" name="isPubActive" id="">
+              <label class="form-check-label" for="defaultCheck1">
+                Default checkbox
               </label>
             </div>
           </div>
