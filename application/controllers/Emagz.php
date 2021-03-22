@@ -5,8 +5,8 @@ class Emagz extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
-    $this->load->model('Memagz');
-    $this->load->library('upload');
+    $this->load->model(array('Memagz', 'Mnotifications'));
+    $this->load->library(array('notification', 'upload'));
     $this->load->helper('download');
 	}
 
@@ -39,7 +39,7 @@ class Emagz extends CI_Controller {
       $this->upload->initialize($config_thumbnail);
       if ($this->upload->do_upload('files')){
         $thumbnail = $this->upload->data();
-        $this->Memagz->insert([
+        $idEmagz = $this->Memagz->insert([
           'NAME' => $judul,
           'THUMBNAIL' => $thumbnail['file_name'],
           'FILE' => $emagz['file_name'],
@@ -48,6 +48,15 @@ class Emagz extends CI_Controller {
           'IS_PUBACTIVE' => $isPubActive,
           'DATE_UPLOADED' => date('Y-m-d H:i:s')
         ]);
+
+        $applications = $this->Mnotifications->getAllDevice();
+        foreach ($applications as $app){
+          $this->notification->setTitle($judul);
+          $this->notification->setMessage("Digimagz PTPN X");
+          $this->notification->setId_emagz($idEmagz);
+          $request_data = $this->notification->getNotificationsEmagz();
+          $this->notification->pushNotification($app->TOKEN, $request_data);
+        }
         $this->session->set_flashdata('success_message', 'E-Magazine berhasil ditambahkan');
         redirect(base_url('emagz'));
       } else {
