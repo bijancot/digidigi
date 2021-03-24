@@ -3,6 +3,7 @@ class Notification{
 	private $title;
     private $message;
     private $id_news;
+    private $id_emagz;
  
 	public function setTitle($title){
 		$this->title = $title;
@@ -15,12 +16,22 @@ class Notification{
 	public function setId_news($id_news){
 		$this->id_news = $id_news;
 	}
+	public function setId_emagz($id_emagz){
+		$this->id_emagz = $id_emagz;
+	}
 	
     public function getNotifications(){
         $notification = array();
         $notification['title'] = $this->title;
         $notification['body'] = $this->message;
         $notification['id_news'] = $this->id_news;
+        return $notification;
+    }
+    public function getNotificationsEmagz(){
+        $notification = array();
+        $notification['title'] = $this->title;
+        $notification['body'] = $this->message;
+        $notification['id_emagz'] = $this->id_emagz;
         return $notification;
     }
 
