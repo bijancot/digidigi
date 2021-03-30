@@ -61,7 +61,6 @@ class News extends CI_Controller {
 	}
 
 	public function create(){
-    $id = $this->db->select_max('ID_NEWS', 'id')->get('news')->row()->id;
 		$title = $this->input->post('judul');
 		$content = $this->input->post('isi');
 		$category = $this->input->post('kategori');
@@ -96,6 +95,8 @@ class News extends CI_Controller {
 				$data = array('ID_COVERSTORY' => $coverstory, 'ID_NEWS' => $id);
 				$this->Mcoverstory->addNewsToCoverStory($data);
 			}
+			
+			$id = $this->db->select_max('ID_NEWS', 'id')->get('news')->row()->id;
 			$tag = explode(', ', $tags);
 			$this->Mtags->insertTags($tag, $id);
 			$this->session->set_flashdata('success_message', 'Berita/Artikel berhasil ditambahkan');
