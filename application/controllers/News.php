@@ -172,6 +172,11 @@ class News extends CI_Controller {
 				$request_data = $this->notification->getNotifications();
 				$this->notification->pushNotification($app->TOKEN, $request_data);
 			}
+		$notif['title']     = $news->TITLE_NEWS;
+		$notif['message']   = 'Digimagz PTPN X';
+		$notif['data']		= 'id_news: '.$id_news;
+		$notif['regisIds']  = $this->Mnotifications->getAllDevice();
+		$this->notification->push($notif);
     }
 		redirect('news');
   }
