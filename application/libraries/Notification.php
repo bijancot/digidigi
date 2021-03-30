@@ -26,7 +26,7 @@ class Notification {
           "notification": {
               "title":"'.$param['title'].'",
               "body":"'.$param['message'].'",
-              '.(!empty($param['data'])? 'data: {'.$param['data'].'},' : '').'
+              '.(!empty($param['data'])? '"data": {'.$param['data'].'},' : '').'
               "icon":"myicon",
               "sound":"default"
           }
