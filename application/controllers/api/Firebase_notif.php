@@ -11,7 +11,7 @@ class Firebase_notif extends CI_Controller {
 
 	function register(){
         $response = array();
-        $token = $this->input->post('token');
+        $token = $this->post('token');
         $data = array('TOKEN' => $token);
         if ($this->Mnotifications->checkTokenExists($data) == 0){
             $register = $this->Mnotifications->insertToken($data);
