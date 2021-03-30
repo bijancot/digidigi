@@ -26,10 +26,10 @@ class Notification {
           "notification": {
               "title":"'.$param['title'].'",
               "body":"'.$param['message'].'",
-              '.(!empty($param['data'])? '"data": {'.$param['data'].'},' : '').'
               "icon":"myicon",
               "sound":"default"
-          }
+            },
+           "data": { '.(!empty($param['data'])? $param['data'] : '').' }
         }',
           CURLOPT_HTTPHEADER => array(
             'Content-Type: application/json',
