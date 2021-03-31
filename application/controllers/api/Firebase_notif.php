@@ -1,7 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+require APPPATH . '/libraries/REST_Controller.php';
+use Restserver\Libraries\REST_Controller;
 
-class Firebase_notif extends CI_Controller {
+class Firebase_notif extends REST_Controller {
 
 	function __construct()
 	{
@@ -9,9 +11,9 @@ class Firebase_notif extends CI_Controller {
 		$this->load->model('Mnotifications');
 	}
 
-	function register(){
+	function register_post(){
         $response = array();
-        $token = $this->input->post('token');
+        $token = $this->post('token');
         $data = array('TOKEN' => $token);
         if ($this->Mnotifications->checkTokenExists($data) == 0){
             $register = $this->Mnotifications->insertToken($data);
