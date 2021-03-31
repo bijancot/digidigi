@@ -89,7 +89,7 @@ class Dummy extends REST_Controller {
     }
   }
   function version_get(){
-    $this->response(['status' => TRUE, 'data' => ['version' => "1.2.3"]], REST_Controller::HTTP_OK);
+    $this->response(['status' => TRUE, 'data' => ['version' => "1.2.2"]], REST_Controller::HTTP_OK);
   }
 }
 ?>
