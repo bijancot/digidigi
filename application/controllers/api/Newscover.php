@@ -18,6 +18,7 @@ class Newscover extends REST_Controller {
     $data = $this->db->where('STATUS', 'published')->order_by('DATE_NEWS', 'desc')->get('view_news_cover');
     if($data) {
       foreach ($data->result() as $q){
+        $q->CONTENT_NEWS_IOS = strip_tags($q->CONTENT_NEWS);
         if ($q->NAME_CATEGORY == 'Galeri'){
           $images = [];
           $news_image = $this->db->where('ID_NEWS', $q->ID_NEWS)->get('galeri')->result();

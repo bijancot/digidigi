@@ -17,6 +17,11 @@ class Story extends REST_Controller {
     }
     $data = $this->db->order_by('DATE_COVERSTORY', 'desc')->get('cover_story');
     if($data) {
+      foreach ($data->result() as $q){
+        $q->SUMMARY_IOS = strip_tags($q->SUMMARY);
+      }
+    }
+    if($data) {
       $this->response(['status' => TRUE, 'data' => $data->num_rows() > 0 ? $data->result() : []], REST_Controller::HTTP_OK);
     } else {
       $this->response(['status' => FALSE,'message' => "data tidak ditemukan"], REST_Controller::HTTP_OK);
