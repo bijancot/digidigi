@@ -27,6 +27,7 @@ class Dummy extends REST_Controller {
     $query = $this->db->order_by('view_news."DATE_NEWS"', 'desc')->get();
     if($query) {
       foreach ($query->result() as $q){
+        $q['CONTENT_NEWS_IOS'] = strip_tags($q->CONTENT_NEWS);
         if ($q->NAME_CATEGORY == 'Galeri'){
           $images = [];
           $news_image = $this->db->where('ID_NEWS', $q->ID_NEWS)->get('galeri')->result();
@@ -49,6 +50,7 @@ class Dummy extends REST_Controller {
   function news_get($id) {
     $query = $this->db->where('view_news."ID_NEWS"', $id)->get('view_news')->row();
     if($query) {
+      $query['CONTENT_NEWS_IOS'] = strip_tags($query->CONTENT_NEWS);
       if ($query->NAME_CATEGORY == 'Galeri'){
         $images = [];
         $news_image = $this->db->where('ID_NEWS', $query->ID_NEWS)->get('galeri')->result();
