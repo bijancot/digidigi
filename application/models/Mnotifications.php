@@ -12,7 +12,7 @@ class Mnotifications extends CI_Model {
 
 	function getAllDevice(){
 		$query = $this->db->get('firebase_token');
-		return $query->result();
+		return $query->result_array();
 	}
 
 	function checkTokenExists($data){
