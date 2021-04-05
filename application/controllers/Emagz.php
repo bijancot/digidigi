@@ -55,13 +55,19 @@ class Emagz extends CI_Controller {
         $this->notification->push($notif);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 317d54e88a1c549686450b4e9a17b1c094c697cf
         $notif['title']     = $judul;
         $notif['message']   = 'Digimagz PTPN X';
         $notif['regisIds']  = $this->Mnotifications->getAllDevice();
         $this->notification->push($notif);
         
+<<<<<<< HEAD
 >>>>>>> dcf70e6e8537994f7fa0fd4e12f95bea1ef0551d
+=======
+>>>>>>> 317d54e88a1c549686450b4e9a17b1c094c697cf
         $this->session->set_flashdata('success_message', 'E-Magazine berhasil ditambahkan');
         redirect(base_url('emagz'));
       } else {

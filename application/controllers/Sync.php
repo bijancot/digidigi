@@ -66,11 +66,19 @@ class Sync extends CI_Controller {
         $image = $imageTags->item(0)->getAttribute('src');
         $imageURL = "http://ptpn10.co.id" . $imageTags->item(0)->getAttribute('src');
         $explode = explode('/', $image)[2];
-        $data = download_image($imageURL);
-        $file_path = $news_image_path . '/' . $explode;
-        $file = fopen($file_path, 'w+');
-        fputs($file, $data);
-        fclose($file);
+        
+        //commented due to change image method from download to url only
+        //$data = download_image($imageURL);
+        //$file_path = $news_image_path . '/' . $explode;
+        //$file = fopen($file_path, 'w+');
+        //fputs($file, $data);
+        //fclose($file);
+
+        //for testing purposes
+        //var_dump(curl_errno($ch));
+        //var_dump(curl_error($ch));
+        //var_dump(curl_getinfo($ch));
+
         $id = $this->db->select_max('ID_NEWS', 'id')->get('news')->row()->id + 1;
         $this->Mnews->createNews([
           'ID_NEWS' => $id,
@@ -79,7 +87,7 @@ class Sync extends CI_Controller {
           'CONTENT_NEWS' => preg_replace("/<img[^>]+\>/i", "", $b->body),
           'VIEWS_COUNT' => 0,
           'SHARES_COUNT' => 0,
-          'NEWS_IMAGE' => $explode,
+          'NEWS_IMAGE' => $imageURL,
           'DATE_NEWS' => date('Y-m-d H:i:s', strtotime($b->created) + 25200),
           'USER_EDITOR' => 'admin@ptpn10.co.id',
           'USER_VERIFICATOR' => 'admin@ptpn10.co.id',
@@ -100,12 +108,20 @@ class Sync extends CI_Controller {
         $imageTags = $doc->getElementsByTagName('img');
         $image = $imageTags->item(0)->getAttribute('src');
         $imageURL = "http://ptpn10.co.id" . $imageTags->item(0)->getAttribute('src');
-        $explode = explode('/', $image)[2];
-        $data = download_image($imageURL);
-        $file_path = $news_image_path . '/' . $explode;
-        $file = fopen($file_path, 'w+');
-        fputs($file, $data);
-        fclose($file);
+        
+        //commented due to change image method from download to url only
+        // $explode = explode('/', $image)[2];
+        // $data = download_image($imageURL);
+        // $file_path = $news_image_path . '/' . $explode;
+        // $file = fopen($file_path, 'w+');
+        // fputs($file, $data);
+        // fclose($file);
+
+        //for testing purposes
+        //var_dump(curl_errno($ch));
+        //var_dump(curl_error($ch));
+        //var_dump(curl_getinfo($ch));
+
         $id = $this->db->select_max('ID_NEWS', 'id')->get('news')->row()->id + 1;
         $this->Mnews->createNews([
           'ID_NEWS' => $id,
@@ -114,7 +130,7 @@ class Sync extends CI_Controller {
           'CONTENT_NEWS' => preg_replace("/<img[^>]+\>/i", "", $b->body),
           'VIEWS_COUNT' => 0,
           'SHARES_COUNT' => 0,
-          'NEWS_IMAGE' => $explode,
+          'NEWS_IMAGE' => $imageURL,
           'DATE_NEWS' => date('Y-m-d H:i:s', strtotime($b->created) + 25200),
           'USER_EDITOR' => 'admin@ptpn10.co.id',
           'USER_VERIFICATOR' => 'admin@ptpn10.co.id',

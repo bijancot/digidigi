@@ -75,12 +75,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-<<<<<<< HEAD
 	'hostname' => 'localhost',
-=======
-	// 'hostname' => '149.129.248.246',
-	'hostname' => 'digi.bgskr-project.my.id',
->>>>>>> d237eb3b67efb77e5a03bca2a36d23783d978fe5
 	'username' => 'panji',
 	'password' => '1sampai8',
 	'database' => 'digi',
