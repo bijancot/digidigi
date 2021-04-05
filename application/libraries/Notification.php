@@ -3,7 +3,7 @@ class Notification {
 
     public function push($param){
         $curl = curl_init();
-        $authkey = 'key=AAAAad5eVAA:APA91bGKtgza8kNwhMe0yNfWs196eaO2xqOiMKGVRQBpOhvCJN2ExaBgeTWr0JuazQv7IdHsNJ-fJmFAF87PlmrB2As6o92R7OOYcKt9284BLI-QwwDHx5vYUYb5v4u4NmcVJxreCzv2';
+        $authkey = 'key=AAAAMQulW_g:APA91bHqbbdXCX47ZxyOn32F_HIXIiYr2m694M8eHG4ciITOySIuISkFoxG0JztGJRIGcpTf9HzvUpjdvOA2lj0LPgb-pYnQRSF4cQw2wrGtBDg0Jws1r8LvP3qvySlgbcN-zsDY-SGo';
         $regisIds = array();
         foreach($param['regisIds'] as $item){
           if($item['TOKEN'] != null){
