@@ -49,14 +49,11 @@ class Emagz extends CI_Controller {
           'DATE_UPLOADED' => date('Y-m-d H:i:s')
         ]);
 
-        $applications = $this->Mnotifications->getAllDevice();
-        foreach ($applications as $app){
-          $this->notification->setTitle($judul);
-          $this->notification->setMessage("Digimagz PTPN X");
-          $this->notification->setId_emagz($idEmagz);
-          $request_data = $this->notification->getNotificationsEmagz();
-          $this->notification->pushNotification($app->TOKEN, $request_data);
-        }
+        $notif['title']     = $judul;
+        $notif['message']   = 'Digimagz PTPN X';
+        $notif['regisIds']  = $this->Mnotifications->getAllDevice();
+        $this->notification->push($notif);
+        
         $this->session->set_flashdata('success_message', 'E-Magazine berhasil ditambahkan');
         redirect(base_url('emagz'));
       } else {

@@ -164,14 +164,11 @@ class News extends CI_Controller {
     $this->session->set_flashdata('success_message', 'Berita/Artikel telah diverifikasi');
     $news = $this->Mnews->getNews($id_news);
     if ($status == 'published'){
-      $applications = $this->Mnotifications->getAllDevice();
-			foreach ($applications as $app){
-				$this->notification->setTitle($news->TITLE_NEWS);
-				$this->notification->setMessage("Digimagz PTPN X");
-				$this->notification->setId_news($id_news);
-				$request_data = $this->notification->getNotifications();
-				$this->notification->pushNotification($app->TOKEN, $request_data);
-			}
+		$notif['title']     = $news->TITLE_NEWS;
+		$notif['message']   = 'Digimagz PTPN X';
+		$notif['data']		= '"id_news": "'.$id_news.'"';
+		$notif['regisIds']  = $this->Mnotifications->getAllDevice();
+		$this->notification->push($notif);
     }
 		redirect('news');
   }
