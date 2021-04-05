@@ -97,7 +97,7 @@ class News extends CI_Controller {
 				$this->Mcoverstory->addNewsToCoverStory($data);
 			}
 			$tag = explode(', ', $tags);
-			$this->Mtags->insertTags($tag, $id);
+			$this->Mtags->insertTags($tag, $id+1);
 			$this->session->set_flashdata('success_message', 'Berita/Artikel berhasil ditambahkan');
 			redirect('news');
 		}

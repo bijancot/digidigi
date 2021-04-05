@@ -48,7 +48,7 @@ class Emagz extends CI_Controller {
           'IS_PUBACTIVE' => $isPubActive,
           'DATE_UPLOADED' => date('Y-m-d H:i:s')
         ]);
-
+        
         $notif['title']     = $judul;
         $notif['message']   = 'Digimagz PTPN X';
         $notif['regisIds']  = $this->Mnotifications->getAllDevice();

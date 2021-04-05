@@ -61,7 +61,7 @@ DROP DATABASE template1;
 CREATE DATABASE template1 WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'en_US.utf8' LC_CTYPE = 'en_US.utf8';
 
 
-ALTER DATABASE template1 OWNER TO postgres;
+ALTER DATABASE template1 OWNER TO panji;
 
 \connect template1
 
@@ -135,7 +135,7 @@ SET row_security = off;
 
 DROP DATABASE digi;
 --
--- Name: digi; Type: DATABASE; Schema: -; Owner: postgres
+-- Name: digi; Type: DATABASE; Schema: -; Owner: panji
 --
 
 CREATE DATABASE digi WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'en_US.utf8' LC_CTYPE = 'en_US.utf8';
@@ -143,7 +143,7 @@ CREATE DATABASE digi WITH TEMPLATE = template0 ENCODING = 'UTF8' LC_COLLATE = 'e
 
 ALTER DATABASE digi OWNER TO panji;
 
-\connect postgres
+\connect digi
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -157,20 +157,20 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- Name: DATABASE digi; Type: COMMENT; Schema: -; Owner: postgres
+-- Name: DATABASE digi; Type: COMMENT; Schema: -; Owner: panji
 --
 
 COMMENT ON DATABASE digi IS 'default administrative connection database';
 
 
 --
--- Name: digi; Type: DATABASE PROPERTIES; Schema: -; Owner: postgres
+-- Name: digi; Type: DATABASE PROPERTIES; Schema: -; Owner: digi
 --
 
 ALTER DATABASE digi SET "TimeZone" TO 'Asia/Jakarta';
 
 
-\connect postgres
+\connect digi
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -188,7 +188,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: backend_user; Type: TABLE; Schema: public; Owner: postgres
+-- Name: backend_user; Type: TABLE; Schema: public; Owner: panji
 --
 
 CREATE TABLE public.backend_user (
@@ -200,10 +200,10 @@ CREATE TABLE public.backend_user (
 );
 
 
-ALTER TABLE public.backend_user OWNER TO postgres;
+ALTER TABLE public.backend_user OWNER TO panji;
 
 --
--- Name: banner; Type: TABLE; Schema: public; Owner: postgres
+-- Name: banner; Type: TABLE; Schema: public; Owner: panji
 --
 
 CREATE TABLE public.banner (
@@ -214,10 +214,10 @@ CREATE TABLE public.banner (
 );
 
 
-ALTER TABLE public.banner OWNER TO postgres;
+ALTER TABLE public.banner OWNER TO panji;
 
 --
--- Name: captcha_ID_CAPTCHA_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: captcha_ID_CAPTCHA_seq; Type: SEQUENCE; Schema: public; Owner: panji
 --
 
 CREATE SEQUENCE public."captcha_ID_CAPTCHA_seq"
@@ -228,10 +228,10 @@ CREATE SEQUENCE public."captcha_ID_CAPTCHA_seq"
     CACHE 1;
 
 
-ALTER TABLE public."captcha_ID_CAPTCHA_seq" OWNER TO postgres;
+ALTER TABLE public."captcha_ID_CAPTCHA_seq" OWNER TO panji;
 
 --
--- Name: captcha; Type: TABLE; Schema: public; Owner: postgres
+-- Name: captcha; Type: TABLE; Schema: public; Owner: panji
 --
 
 CREATE TABLE public.captcha (
@@ -242,10 +242,10 @@ CREATE TABLE public.captcha (
 );
 
 
-ALTER TABLE public.captcha OWNER TO postgres;
+ALTER TABLE public.captcha OWNER TO panji;
 
 --
--- Name: category; Type: TABLE; Schema: public; Owner: postgres
+-- Name: category; Type: TABLE; Schema: public; Owner: panji
 --
 
 CREATE TABLE public.category (
@@ -254,7 +254,7 @@ CREATE TABLE public.category (
 );
 
 
-ALTER TABLE public.category OWNER TO postgres;
+ALTER TABLE public.category OWNER TO panji;
 
 --
 -- Name: comments; Type: TABLE; Schema: public; Owner: postgres
@@ -272,7 +272,7 @@ CREATE TABLE public.comments (
 );
 
 
-ALTER TABLE public.comments OWNER TO postgres;
+ALTER TABLE public.comments OWNER TO panji;
 
 --
 -- Name: comments_ID_COMMENT_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -286,7 +286,7 @@ CREATE SEQUENCE public."comments_ID_COMMENT_seq"
     CACHE 1;
 
 
-ALTER TABLE public."comments_ID_COMMENT_seq" OWNER TO postgres;
+ALTER TABLE public."comments_ID_COMMENT_seq" OWNER TO panji;
 
 --
 -- Name: comments_ID_COMMENT_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -308,7 +308,7 @@ CREATE TABLE public.cover_story (
 );
 
 
-ALTER TABLE public.cover_story OWNER TO postgres;
+ALTER TABLE public.cover_story OWNER TO panji;
 
 --
 -- Name: cover_story_ID_COVERSTORY_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -322,7 +322,7 @@ CREATE SEQUENCE public."cover_story_ID_COVERSTORY_seq"
     CACHE 1;
 
 
-ALTER TABLE public."cover_story_ID_COVERSTORY_seq" OWNER TO postgres;
+ALTER TABLE public."cover_story_ID_COVERSTORY_seq" OWNER TO panji;
 
 --
 -- Name: cover_story_ID_COVERSTORY_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -343,7 +343,7 @@ CREATE SEQUENCE public."emagz_ID_EMAGZ_seq"
     CACHE 1;
 
 
-ALTER TABLE public."emagz_ID_EMAGZ_seq" OWNER TO postgres;
+ALTER TABLE public."emagz_ID_EMAGZ_seq" OWNER TO panji;
 
 --
 -- Name: emagz; Type: TABLE; Schema: public; Owner: postgres
@@ -358,7 +358,7 @@ CREATE TABLE public.emagz (
 );
 
 
-ALTER TABLE public.emagz OWNER TO postgres;
+ALTER TABLE public.emagz OWNER TO panji;
 
 --
 -- Name: firebase_token; Type: TABLE; Schema: public; Owner: postgres
@@ -369,7 +369,7 @@ CREATE TABLE public.firebase_token (
 );
 
 
-ALTER TABLE public.firebase_token OWNER TO postgres;
+ALTER TABLE public.firebase_token OWNER TO panji;
 
 --
 -- Name: galeri; Type: TABLE; Schema: public; Owner: postgres
@@ -394,7 +394,7 @@ CREATE TABLE public.likes (
 );
 
 
-ALTER TABLE public.likes OWNER TO postgres;
+ALTER TABLE public.likes OWNER TO panji;
 
 --
 -- Name: likes_ID_LIKES_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -408,7 +408,7 @@ CREATE SEQUENCE public."likes_ID_LIKES_seq"
     CACHE 1;
 
 
-ALTER TABLE public."likes_ID_LIKES_seq" OWNER TO postgres;
+ALTER TABLE public."likes_ID_LIKES_seq" OWNER TO panji;
 
 --
 -- Name: likes_ID_LIKES_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -437,7 +437,7 @@ CREATE TABLE public.news (
 );
 
 
-ALTER TABLE public.news OWNER TO postgres;
+ALTER TABLE public.news OWNER TO panji;
 
 --
 -- Name: news_ID_NEWS_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -451,7 +451,7 @@ CREATE SEQUENCE public."news_ID_NEWS_seq"
     CACHE 1;
 
 
-ALTER TABLE public."news_ID_NEWS_seq" OWNER TO postgres;
+ALTER TABLE public."news_ID_NEWS_seq" OWNER TO panji;
 
 --
 -- Name: news_ID_NEWS_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -470,7 +470,7 @@ CREATE TABLE public.news_cover (
 );
 
 
-ALTER TABLE public.news_cover OWNER TO postgres;
+ALTER TABLE public.news_cover OWNER TO panji;
 
 --
 -- Name: news_share; Type: TABLE; Schema: public; Owner: postgres
@@ -483,7 +483,7 @@ CREATE TABLE public.news_share (
 );
 
 
-ALTER TABLE public.news_share OWNER TO postgres;
+ALTER TABLE public.news_share OWNER TO panji;
 
 --
 -- Name: news_tags; Type: TABLE; Schema: public; Owner: postgres
@@ -495,7 +495,7 @@ CREATE TABLE public.news_tags (
 );
 
 
-ALTER TABLE public.news_tags OWNER TO postgres;
+ALTER TABLE public.news_tags OWNER TO panji;
 
 --
 -- Name: news_view; Type: TABLE; Schema: public; Owner: postgres
@@ -508,7 +508,7 @@ CREATE TABLE public.news_view (
 );
 
 
-ALTER TABLE public.news_view OWNER TO postgres;
+ALTER TABLE public.news_view OWNER TO panji;
 
 --
 -- Name: tags; Type: TABLE; Schema: public; Owner: postgres
@@ -521,7 +521,7 @@ CREATE TABLE public.tags (
 );
 
 
-ALTER TABLE public.tags OWNER TO postgres;
+ALTER TABLE public.tags OWNER TO panji;
 
 --
 -- Name: tag_ID_TAG_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -535,7 +535,7 @@ CREATE SEQUENCE public."tag_ID_TAG_seq"
     CACHE 1;
 
 
-ALTER TABLE public."tag_ID_TAG_seq" OWNER TO postgres;
+ALTER TABLE public."tag_ID_TAG_seq" OWNER TO panji;
 
 --
 -- Name: tag_ID_TAG_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -559,7 +559,7 @@ CREATE TABLE public."user" (
 );
 
 
-ALTER TABLE public."user" OWNER TO postgres;
+ALTER TABLE public."user" OWNER TO panji;
 
 --
 -- Name: video; Type: TABLE; Schema: public; Owner: postgres
@@ -577,7 +577,7 @@ CREATE TABLE public.video (
 );
 
 
-ALTER TABLE public.video OWNER TO postgres;
+ALTER TABLE public.video OWNER TO panji;
 
 --
 -- Name: view_comments; Type: VIEW; Schema: public; Owner: postgres
@@ -591,7 +591,7 @@ SELECT
     NULL::bigint AS "COMMENTS";
 
 
-ALTER TABLE public.view_comments OWNER TO postgres;
+ALTER TABLE public.view_comments OWNER TO panji;
 
 --
 -- Name: view_likes; Type: VIEW; Schema: public; Owner: postgres
@@ -605,7 +605,7 @@ SELECT
     NULL::bigint AS "LIKES";
 
 
-ALTER TABLE public.view_likes OWNER TO postgres;
+ALTER TABLE public.view_likes OWNER TO panji;
 
 --
 -- Name: view_news; Type: VIEW; Schema: public; Owner: postgres
@@ -633,7 +633,7 @@ CREATE VIEW public.view_news AS
      LEFT JOIN public.backend_user "V" ON (((news."USER_VERIFICATOR")::text = ("V"."USERNAME")::text)));
 
 
-ALTER TABLE public.view_news OWNER TO postgres;
+ALTER TABLE public.view_news OWNER TO panji;
 
 --
 -- Name: view_news_comments; Type: VIEW; Schema: public; Owner: postgres
@@ -654,7 +654,7 @@ CREATE VIEW public.view_news_comments AS
      JOIN public."user" ON (((comments."EMAIL")::text = ("user"."EMAIL")::text)));
 
 
-ALTER TABLE public.view_news_comments OWNER TO postgres;
+ALTER TABLE public.view_news_comments OWNER TO panji;
 
 --
 -- Name: view_news_cover; Type: VIEW; Schema: public; Owner: postgres
@@ -681,7 +681,7 @@ CREATE VIEW public.view_news_cover AS
      LEFT JOIN public.cover_story ON ((news_cover."ID_COVERSTORY" = cover_story."ID_COVERSTORY")));
 
 
-ALTER TABLE public.view_news_cover OWNER TO postgres;
+ALTER TABLE public.view_news_cover OWNER TO panji;
 
 --
 -- Name: view_news_trending; Type: VIEW; Schema: public; Owner: postgres
@@ -701,7 +701,7 @@ CREATE VIEW public.view_news_trending AS
   ORDER BY COALESCE((news."VIEWS_COUNT" + view_comments."COMMENTS"), (0)::bigint, (news."VIEWS_COUNT" + view_comments."COMMENTS")) DESC;
 
 
-ALTER TABLE public.view_news_trending OWNER TO postgres;
+ALTER TABLE public.view_news_trending OWNER TO panji;
 
 --
 -- Name: comments ID_COMMENT; Type: DEFAULT; Schema: public; Owner: postgres
