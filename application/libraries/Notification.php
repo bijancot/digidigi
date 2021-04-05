@@ -1,63 +1,45 @@
-<?php
-class Notification{
-	private $title;
-    private $message;
-    private $id_news;
-    private $id_emagz;
- 
-	public function setTitle($title){
-		$this->title = $title;
-	}
- 
-	public function setMessage($message){
-		$this->message = $message;
-	}
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
+class Notification {
 
-	public function setId_news($id_news){
-		$this->id_news = $id_news;
-	}
-	public function setId_emagz($id_emagz){
-		$this->id_emagz = $id_emagz;
-	}
-	
-    public function getNotifications(){
-        $notification = array();
-        $notification['title'] = $this->title;
-        $notification['body'] = $this->message;
-        $notification['id_news'] = $this->id_news;
-        return $notification;
-    }
-    public function getNotificationsEmagz(){
-        $notification = array();
-        $notification['title'] = $this->title;
-        $notification['body'] = $this->message;
-        $notification['id_emagz'] = $this->id_emagz;
-        return $notification;
-    }
-
-    public function pushNotification($firebase_token, $requestData){
-        $fields = array(
-            'to' => $firebase_token,
-            'data' => $requestData
-        );
-        $url = 'https://fcm.googleapis.com/fcm/send';
-        $headers = array(
-            'Authorization: key=AAAAMQulW_g:APA91bHqbbdXCX47ZxyOn32F_HIXIiYr2m694M8eHG4ciITOySIuISkFoxG0JztGJRIGcpTf9HzvUpjdvOA2lj0LPgb-pYnQRSF4cQw2wrGtBDg0Jws1r8LvP3qvySlgbcN-zsDY-SGo',
-            'Content-Type: application/json'
-        );
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
-        $result = curl_exec($ch);
-        if($result === FALSE){
-            die('Curl failed: ' . curl_error($ch));
+    public function push($param){
+        $curl = curl_init();
+        $authkey = 'key=AAAAad5eVAA:APA91bGKtgza8kNwhMe0yNfWs196eaO2xqOiMKGVRQBpOhvCJN2ExaBgeTWr0JuazQv7IdHsNJ-fJmFAF87PlmrB2As6o92R7OOYcKt9284BLI-QwwDHx5vYUYb5v4u4NmcVJxreCzv2';
+        $regisIds = array();
+        foreach($param['regisIds'] as $item){
+          if($item['TOKEN'] != null){
+            array_push($regisIds, '"'.$item['TOKEN'].'"');
+          }
         }
-        curl_close($ch);
-        return $result;
+        $regisIds = implode(',', $regisIds);
+
+        curl_setopt_array($curl, array(
+          CURLOPT_URL => 'https://fcm.googleapis.com/fcm/send',
+          CURLOPT_RETURNTRANSFER => true,
+          CURLOPT_ENCODING => '',
+          CURLOPT_MAXREDIRS => 10,
+          CURLOPT_TIMEOUT => 0,
+          CURLOPT_FOLLOWLOCATION => true,
+          CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+          CURLOPT_CUSTOMREQUEST => 'POST',
+          CURLOPT_POSTFIELDS =>'{
+          "registration_ids":['.$regisIds.'],
+          "notification": {
+              "title":"'.$param['title'].'",
+              "body":"'.$param['message'].'",
+              "icon":"myicon",
+              "sound":"default"
+            },
+           "data": { '.(!empty($param['data'])? $param['data'] : '').' }
+        }',
+          CURLOPT_HTTPHEADER => array(
+            'Content-Type: application/json',
+            'Authorization: '.$authkey
+          ),
+        ));
+        
+        $response = curl_exec($curl);
+        
+        curl_close($curl);
+        return $response;
     }
 }
-?>
