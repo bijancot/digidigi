@@ -16,6 +16,16 @@ class Emagz extends REST_Controller {
     if ($id != '') $this->db->where('NAME ILIKE', '%' . $id . '%');
     $query = $this->db->order_by('DATE_UPLOADED','desc')->get('emagz');
     if ($query) {
+      foreach ($query->result() as $item) {
+        if($item->LINK_QUIZ != '' && !empty(get_headers($item->LINK_QUIZ, 1)['Location'])){
+          $link = get_headers($item->LINK_QUIZ, 1)['Location'];
+          if(is_array($link)){
+            $item->LINK_QUIZ = $link[0];
+          }else{
+            $item->LINK_QUIZ = $link;
+          }
+        }
+      }
       $this->response(['status' => TRUE, 'data' => $query->num_rows() > 0 ? $query->result() : []], REST_Controller::HTTP_OK);
     } else {
       $this->response(['status' => FALSE, 'message' => "data tidak ditemukan"], REST_Controller::HTTP_OK);
