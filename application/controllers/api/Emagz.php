@@ -17,7 +17,7 @@ class Emagz extends REST_Controller {
     $query = $this->db->order_by('DATE_UPLOADED','desc')->get('emagz');
     if ($query) {
       foreach ($query->result() as $item) {
-        if(!empty(get_headers($item->LINK_QUIZ, 1)['Location'])){
+        if($item->LINK_QUIZ != '' && !empty(get_headers($item->LINK_QUIZ, 1)['Location'])){
           $item->LINK_QUIZ = get_headers($item->LINK_QUIZ, 1)['Location'];
         }
       }
