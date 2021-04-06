@@ -20,9 +20,9 @@ class Emagz extends REST_Controller {
         if($item->LINK_QUIZ != '' && !empty(get_headers($item->LINK_QUIZ, 1)['Location'])){
           $link = get_headers($item->LINK_QUIZ, 1)['Location'];
           if(is_array($link)){
-            $item->LINK_QUIZ = get_headers($item->LINK_QUIZ, 1)['Location'][0];
+            $item->LINK_QUIZ = $link[0];
           }else{
-            $item->LINK_QUIZ = get_headers($item->LINK_QUIZ, 1)['Location'];
+            $item->LINK_QUIZ = $link;
           }
         }
       }
