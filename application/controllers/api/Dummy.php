@@ -37,7 +37,14 @@ class Dummy extends REST_Controller {
           $q->NEWS_IMAGE = $images;
         } else {
           if (isset($q->NEWS_IMAGE)){
+		if(strpos($q->NEWS_IMAGE, 'http') !== false){
+			$str_img = $q->NEWS_IMAGE;
+			$new = explode(':',$str_img);
+			$rr = "https:".$new[1];
+			$q->NEWS_IMAGE = [$rr];
+		}else{
             $q->NEWS_IMAGE = [$q->NEWS_IMAGE];
+		}
           }
         }
       }
